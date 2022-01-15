@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Lottery;
+use App\Models\WinningLogs;
 use Livewire\Component;
 
 class Detail extends Component
@@ -10,9 +11,8 @@ class Detail extends Component
     public $lottery;
     public function mount($code)
     {
-        if (Lottery::where('code', $code)->exists()) {
-            $this->lottery = Lottery::where('code', $code)->first();
-        } else {
+        $this->lottery = Lottery::where('code', $code)->first();
+        if (!$this->lottery || !$this->lottery->status) {
             $this->redirect(route('home'));
         }
 

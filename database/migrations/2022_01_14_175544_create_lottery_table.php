@@ -18,7 +18,9 @@ class CreateLotteryTable extends Migration
             $table->char('code', 7)->unique();
             $table->string('title');
             $table->string('content');
-            $table->string('link')->nullable();
+            $table->longText('link')->nullable();
+            $table->longText('image')->nullable();
+            $table->boolean('is_used')->default(false);
         });
         Schema::create('winning_logs', function (Blueprint $table) {
             $table->id();

@@ -1,13 +1,13 @@
-<div class="bg-pink-700 min-h-screen pt-4">
+<div class="min-h-screen pt-4">
     <div class="pb-4">
         <p class="text-4xl text-center text-white">AAA</p>
     </div>
     <div class="grid grid-cols-6 mx-4 border-2 border-pink-900">
         @foreach($lotteries as $lottery)
-            <div class="flex justify-center items-center border-4 border-pink-900 @if($lottery->status) bg-yellow-400 @else bg-pink-800 @endif aspect-square">
+            <div class="flex justify-center items-center border-4 border-pink-900 bg-pink-800 aspect-square">
                 @if($lottery->status)
-                <button class="flex justify-center items-center w-full h-full" wire:click="">
-                    {{$loop->index + 1}}
+                <button class="flex justify-center items-center w-full h-full bg-yellow-400" wire:click="toDetail('{{ $lottery->code }}')">
+                    @if($lottery->is_used) V @else {{$loop->index + 1}} @endif
                 </button>
                 @else
                     <p class="flex justify-center items-center text-white" wire:click="">
@@ -19,8 +19,8 @@
     </div>
     <div class="p-8 gap-4">
         <div class="flex flex-col p-4 justify-center items-center border-8 border-yellow-700 bg-pink-600 gap-4">
-            <p for="code" class="text-white text-2xl w-full text-center font-bold">輸入兌換碼</p>
-            <input type="text" class="w-full rounded-md h-16" id="code" wire:model="code">
+            <label for="code" class="text-white text-2xl w-full text-center font-bold">輸入兌換碼</label>
+            <input type="text" class="w-full h-16 mx-2" id="code" wire:model="code">
             <button class="bg-yellow-500 h-16 w-full border-8 border-yellow-300" wire:click="redeem" wire:loading.attr="disabled">兌換</button>
         </div>
 
@@ -54,16 +54,16 @@
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <div class="px-6 py-4">
                 <div class="text-lg text-center">
-                    恭喜你獲得
+                    恭喜你
                 </div>
 
                 <div class="mt-4">
-                    測試用獎品
+                    {{ $redeemedLottery->title??'' }}
                 </div>
             </div>
 
             <div class="flex flex-row justify-end px-6 py-4 text-right">
-                <a class="border-2 border-yellow-500 p-2">查看獎品</a>
+                <a class="border-2 border-yellow-500 p-2" href="{{ $redeemedLottery->href??'' }}">查看獎品</a>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/', \App\Http\Livewire\Home::class)->name('name');
+    Route::get('/', \App\Http\Livewire\Home::class)->name('home');
     Route::get('/records', \App\Http\Livewire\Record::class)->name('record');
 
     Route::get('/lotteries/{code}', \App\Http\Livewire\Detail::class)->name('detail');

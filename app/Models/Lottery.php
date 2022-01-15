@@ -14,4 +14,10 @@ class Lottery extends Model
     {
         return WinningLogs::where('lottery_code', $this->code)->exists();
     }
+
+    public function getHrefAttribute(): string
+    {
+        return route('detail', ['code' => $this->code]);
+    }
+
 }
