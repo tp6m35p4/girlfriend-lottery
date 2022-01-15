@@ -16,7 +16,8 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+{{--        <script src="{{ mix('js/app.js') }}" defer></script>--}}
+        <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body class="font-sans antialiased">
 {{--        <x-jet-banner />--}}
@@ -34,13 +35,13 @@
 {{--            @endif--}}
 
             <!-- Page Content -->
-            <main class="pt-4 py-4">
+            <main>
                 {{ $slot }}
             </main>
         </div>
 
         @stack('modals')
-
+        @stack('scripts')
         @livewireScripts
     </body>
 </html>

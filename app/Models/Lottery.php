@@ -12,6 +12,6 @@ class Lottery extends Model
 
     public function getStatusAttribute(): bool
     {
-        return WinningLogs::where('lottery_id', $this->id)->exists();
+        return WinningLogs::where('lottery_code', $this->code)->exists();
     }
 }
