@@ -1,6 +1,6 @@
 <div class="min-h-screen pt-4">
     <div class="pb-4">
-        <p class="text-4xl text-center text-white">AAA</p>
+        <p class="text-4xl text-center text-white">Drink and Win!</p>
     </div>
     <div class="grid grid-cols-6 mx-4 border-2 border-pink-900">
         @foreach($lotteries as $lottery)
