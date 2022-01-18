@@ -6,8 +6,8 @@
         @foreach($lotteries as $lottery)
             <div class="flex justify-center items-center border-4 border-pink-900 bg-pink-800 aspect-square">
                 @if($lottery->status)
-                <button class="flex justify-center items-center w-full h-full bg-yellow-400" wire:click="toDetail('{{ $lottery->code }}')">
-                    @if($lottery->is_used) V @else {{ $lottery->title }} @endif
+                <button class="flex justify-center items-center w-full h-full bg-yellow-400 text-sm" wire:click="toDetail('{{ $lottery->code }}')">
+                    {{ $lottery->title }}
                 </button>
                 @else
                     <p class="flex justify-center items-center text-white" wire:click="">
