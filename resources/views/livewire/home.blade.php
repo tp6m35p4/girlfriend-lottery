@@ -7,7 +7,7 @@
             <div class="flex justify-center items-center border-4 border-pink-900 bg-pink-800 aspect-square">
                 @if($lottery->status)
                 <button class="flex justify-center items-center w-full h-full bg-yellow-400" wire:click="toDetail('{{ $lottery->code }}')">
-                    @if($lottery->is_used) V @else {{$loop->index + 1}} @endif
+                    @if($lottery->is_used) V @else {{ $lottery->title }} @endif
                 </button>
                 @else
                     <p class="flex justify-center items-center text-white" wire:click="">
@@ -54,16 +54,16 @@
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <div class="px-6 py-4">
                 <div class="text-lg text-center">
-                    恭喜你
+                    今天上班也辛苦了
                 </div>
 
                 <div class="mt-4">
-                    {{ $redeemedLottery->title??'' }}
+                    下次一起去 {{ $redeemedLottery->title??'' }} 吧！
                 </div>
             </div>
 
             <div class="flex flex-row justify-end px-6 py-4 text-right">
-                <a class="border-2 border-yellow-500 p-2" href="{{ $redeemedLottery->href??'' }}">查看獎品</a>
+                <a class="border-2 border-yellow-500 p-2" href="{{ $redeemedLottery->href??'' }}">查看詳情</a>
             </div>
         </div>
     </div>
