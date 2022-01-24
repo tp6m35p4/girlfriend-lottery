@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
         //
         User::insert([
             'name' => "Vicky",
-            'email' => 'vicky@lottery.com',
-            'password' => Hash::make('20210109'),
+            'email' => 'vicky1@lottery.com',
+            'password' => Hash::make('20220109'),
         ]);
     }
 }
