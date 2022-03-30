@@ -25,7 +25,7 @@
     <div class="p-8 gap-4">
         <div class="flex flex-col p-4 justify-center items-center border-8 border-yellow-700 bg-pink-600 gap-4">
             <label for="code" class="text-white text-2xl w-full text-center font-bold">輸入兌換碼</label>
-            <input type="text" class="w-full h-16 mx-2" id="code" wire:model="code">
+            <input type="text" class="w-full h-16 mx-2 px-2" id="code" wire:model="code">
             <button class="bg-yellow-500 h-16 w-full border-8 border-yellow-300" wire:click="redeem" wire:loading.attr="disabled">兌換</button>
         </div>
 
