@@ -17,7 +17,8 @@ class LotteryFactory extends Factory
         return [
             'code' => Str::random(7),
             'title' => '',
-            'content' => ''
+            'content' => '',
+            'belongs_to_event' => 2
         ];
     }
 }

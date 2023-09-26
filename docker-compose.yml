@@ -1,4 +1,3 @@
-# For more information: https://laravel.com/docs/sail
 version: '3'
 services:
     laravel.test:
@@ -21,7 +20,8 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-
+        depends_on:
+            - mariadb
     mariadb:
         image: 'mariadb:10'
         ports:
@@ -37,7 +37,11 @@ services:
         networks:
             - sail
         healthcheck:
-            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
 networks:
@@ -45,4 +49,6 @@ networks:
         driver: bridge
 volumes:
     sailmariadb:
+        driver: local
+    sail-mariadb:
         driver: local
